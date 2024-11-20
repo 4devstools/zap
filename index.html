@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Link WhatsApp</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Load QR Code library before our modules -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <!-- Ensure modules load with defer -->
+    <script type="module" src="./script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Tela 1: Entrada de dados -->
+        <div id="screen1" class="screen">
+            <h1>Gerador de Link WhatsApp</h1>
+            <form id="whatsappForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="phone">Número de Telefone*</label>
+                    <input type="tel" id="phone" placeholder="(XX) XXXXX-XXXX" required>
+                    <span class="error" id="phoneError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem (opcional)</label>
+                    <textarea id="message" rows="4" placeholder="Digite sua mensagem..."></textarea>
+                </div>
+
+                <button type="button" id="generateBtn" class="primary-btn" disabled>Gerar Link</button>
+            </form>
+        </div>
+
+        <!-- Tela 2: Link e QR Code -->
+        <div id="screen2" class="screen hidden">
+            <h2>Link Gerado</h2>
+            
+            <div class="result-container">
+                <div class="link-section">
+                    <input type="text" id="generatedLink" readonly>
+                    <button id="copyBtn" class="secondary-btn">Copiar Link</button>
+                </div>
+
+                <div class="qr-section">
+                    <div id="qrCode"></div>
+                    <div class="qr-controls">
+                        <select id="qrFormat" class="select-format">
+                            <option value="svg">SVG</option>
+                            <option value="png">PNG</option>
+                        </select>
+                        <button id="downloadQrBtn" class="secondary-btn">Baixar QR Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="newLinkBtn" class="primary-btn">Gerar Novo Link</button>
+        </div>
+    </div>
+</body>
+</html>
