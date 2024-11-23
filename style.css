@@ -161,15 +161,24 @@ input:focus, textarea:focus, select:focus {
     position: relative;
 }
 
+/* Improved dropdown arrow styling */
 .select-format::after {
-    content: "⌵";
+    content: "";
     position: absolute;
-    right: 1rem;
+    right: 0.8rem;
     top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #ff4444;
     transform: translateY(-50%);
-    color: #ff4444;
     pointer-events: none;
-    font-size: 1.2rem;
+}
+
+/* Add padding-right to prevent text overlap with arrow */
+.select-format select {
+    padding-right: 2.5rem;
 }
 
 #downloadQrBtn {
