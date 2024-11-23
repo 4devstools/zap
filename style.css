@@ -158,6 +158,18 @@ input:focus, textarea:focus, select:focus {
 .select-format {
     width: auto;
     flex: 1;
+    position: relative;
+}
+
+.select-format::after {
+    content: "⌵";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff4444;
+    pointer-events: none;
+    font-size: 1.2rem;
 }
 
 #downloadQrBtn {
